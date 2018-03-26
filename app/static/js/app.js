@@ -40,26 +40,32 @@ Vue.component('app-footer', {
 })
 
 const NewsList = Vue.component('news-list', {
-  template: `
+  template: 
+  `   
+      <div class="card">
+      <h2>News</h2>
+      <div class="news">
+            <div class="news__list">
+              <div v-for="article in articles" class="news__item">
+                <img class="card-img-top" :src="article.urlToImage">
+                <div class="card-body">
+                <p class="card-title">{{ article.title }}</p>
+                <p class="card-text">{{ article.description }} </p>
+                </div>
+              </div>
+            </div>
+      </div> 
       <div class="form-inline d-flex justify-content-center">
           <div class="form-group mx-sm-3 mb-2">
-          <label class="sr-only" for="search">Search</label>
-          <input type="search" name="search" v-model="searchTerm"
-          id="search" class="form-control mb-2 mr-sm-2" placeholder="Enter search term here" />
-          <button class="btn btn-primary mb-2"
-@click="searchNews">Search</button>
+            <label class="sr-only" for="search">Search</label>
+            <input type="search" name="search" v-model="searchTerm" id="search" class="form-control mb-2 mr-sm-2" placeholder="Enter search term here" />
+            <button class="btn btn-primary mb-2"@click="searchNews">Search</button>
           </div> 
-      </div>,    
-       <div class="news">
-            <h2>News</h2>
-            <ul class="news__list">
-                <li v-for="article in articles"
-        class="news__item">{{ article.title }}</li>
-            </ul> 
-      </div> `,
+      </div>
+    </div>`,
   created: function() {
       let self = this;
-        fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=<your apiKey>')
+        fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=4dd6f08a28f34f87b13844ab529cfe0a')
           .then(function(response) {
             return response.json();
           })
@@ -78,7 +84,7 @@ const NewsList = Vue.component('news-list', {
       searchNews: function() {
         let self = this;
         fetch('https://newsapi.org/v2/everything?q='+
-self.searchTerm + '&language=en&apiKey=<your apiKey>')
+self.searchTerm + '&language=en&apiKey=4dd6f08a28f34f87b13844ab529cfe0a')
           .then(function(response) {
             return response.json();
           })

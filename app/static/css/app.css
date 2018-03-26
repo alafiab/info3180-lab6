@@ -5,3 +5,29 @@ body {
 footer  {
     padding-top: 20px;
 }
+
+
+.card-body {
+	padding: 0px;
+}
+
+.card {
+	border-radius: 10px;
+	overflow: hidden;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 415px;
+	border-top: #16ff35 solid 3px;
+}
+
+.photo img {
+	height: 150px;
+	width: 150px;
+
+}
+
+.card-body{
+	padding: 10px;
+	text-align: center;
+
