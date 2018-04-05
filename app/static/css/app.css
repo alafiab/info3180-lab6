@@ -30,4 +30,18 @@ footer  {
 .card-body{
 	padding: 10px;
 	text-align: center;
+}
+
+
+.wrapper{
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+	grid-auto-rows: 280px;
+}
+
+.wrapper{
+	display: grid;
+	margin:10px;
+}
+
 

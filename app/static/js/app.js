@@ -46,11 +46,14 @@ const NewsList = Vue.component('news-list', {
       <h2>News</h2>
       <div class="news">
             <div class="news__list">
+            <div class="wrapper">
               <div v-for="article in articles" class="news__item">
+                
                 <img class="card-img-top" :src="article.urlToImage">
                 <div class="card-body">
                 <p class="card-title">{{ article.title }}</p>
                 <p class="card-text">{{ article.description }} </p>
+                </div>
                 </div>
               </div>
             </div>
@@ -65,7 +68,7 @@ const NewsList = Vue.component('news-list', {
     </div>`,
   created: function() {
       let self = this;
-        fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=4dd6f08a28f34f87b13844ab529cfe0a')
+        fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=')
           .then(function(response) {
             return response.json();
           })
@@ -84,7 +87,7 @@ const NewsList = Vue.component('news-list', {
       searchNews: function() {
         let self = this;
         fetch('https://newsapi.org/v2/everything?q='+
-self.searchTerm + '&language=en&apiKey=4dd6f08a28f34f87b13844ab529cfe0a')
+self.searchTerm + '&language=en&apiKey=')
           .then(function(response) {
             return response.json();
           })
